@@ -1,0 +1,12 @@
+# Compilation
+ppm2jpeg
+obj/
+*.o
+*.d
+*.dSYM/
+
+# Sorties des tests
+out/
+
+# Divers
+.DS_Store

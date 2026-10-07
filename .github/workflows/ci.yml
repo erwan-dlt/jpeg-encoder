@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compilation
+        run: make
+      - name: Dépendances de test
+        run: pip install pillow numpy
+      - name: Tests
+        run: make test
+      - name: Les tables de Huffman sont à jour
+        run: make tables && git diff --exit-code src/tableaux_huffman.c
